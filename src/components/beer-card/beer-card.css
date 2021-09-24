@@ -1,0 +1,33 @@
+.beer-card {
+    height: 186px;
+    cursor: default;
+}
+
+.fav-button i {
+    cursor: pointer;
+    color: #4b94cc;
+}
+
+.beer-img-block {
+    flex-basis:20%;
+}
+
+.beer-img {
+    object-fit: contain;
+}
+
+.beer-body {
+    flex-basis: 75%;
+    overflow: hidden;
+}
+
+.beer-title {
+    font-weight: 700;
+    line-height: 1;
+}
+
+.beer-text {
+    max-height: 125px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
