@@ -33,10 +33,9 @@ export default class App extends Component {
 
     onToggleFavourite = (id) => {
         this.setState(({data, favs}) => {
-            const newElem = data.filter(elem => elem.id === id);
-            if (favs.includes(newElem[0])) {
-                newElem.important = false;
-                const index = favs.findIndex(elem => elem === newElem[0]);
+            const newElem = data.find(elem => elem.id === id);
+            if (favs.find(elem => elem.id === newElem.id)) {
+                const index = favs.findIndex(elem => elem.id === newElem.id);
 
                 const newArr = [...favs.slice(0, index), ...favs.slice(index + 1)];
                 return {
@@ -45,7 +44,7 @@ export default class App extends Component {
             }
             else {
                 newElem.important = true;
-                const newArr = [...favs, ...newElem];
+                const newArr = [...favs, newElem];
                 return {
                     favs: newArr
                 }
