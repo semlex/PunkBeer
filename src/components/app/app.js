@@ -80,6 +80,16 @@ export default class App extends Component {
         if (filter === 'favs' && term === '') {
             return favs;
         }
+        else if (filter === 'favs' && term !== '') {
+            const visibleItems  = [];
+            items.forEach(item => {
+                if (favs.find(elem => elem.id === item.id)) {
+                    item.favourite = true;
+                    visibleItems.push(item);
+                }
+            });
+            return visibleItems;
+        }
         else {
             items.forEach(item => {
                 if (favs.find(elem => elem.id === item.id)) {
@@ -95,8 +105,7 @@ export default class App extends Component {
 
     render() {
         const {data, filter} = this.state;
-        const visibleCards = this.filterPost(data, filter);
-        console.log(visibleCards);
+        let visibleCards = this.filterPost(data, filter);
         return (
             <div className = "app">
                 <AppHeader 
